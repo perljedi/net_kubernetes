@@ -43,11 +43,10 @@ has 'json' => (
 sub list_pods {
 	my $self = shift;
 	my $res = $self->ua->request(HTTP::Request->new(GET => $self->url.'/pods'));
-	#print Dumper($res)."\n";
 	if ($res->is_success) {
 		return $self->json->decode($res->content);
 	}else{
-		Net::Kubernetes::Excpetion->throw(code=>$res->code, message=>$res->message);
+		Net::Kubernetes::Exception->throw(code=>$res->code, message=>$res->message);
 	}
 }
 
@@ -62,7 +61,7 @@ sub _build_json {
 }
 
 
-package Net::Kubernets::Exception;
+package Net::Kubernetes::Exception;
 use Moose;
 
 with "Throwable";
