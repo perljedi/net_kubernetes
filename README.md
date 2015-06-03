@@ -1,2 +1,3 @@
-# net_kubernetes
-Perl Module for interfacing with Kubernetes
+Deprecate - do not use
+
+see http://github.com/perljedi/net-kubernetes instead
